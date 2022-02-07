@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<!-- Products -->
+<section class="section products">
+    <div class="title">
+      <h2><b>{{product_count}} </b>New Products</h2>
+      <span>Select from the fresh products and save money</span><br>
+    
+
+    </div>
+
+    <div class="product-layout">
+      {% for product in products%}
+      <div class="product">
+        <div class="img-container">
+          <img src="{{ product.images.url }}" alt="" />
+          <div class="addCart">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+
+          <ul class="side-icons">
+            <span><i class="fas fa-search"></i></span>
+            <span><i class="far fa-heart"></i></span>
+            <span><i class="fas fa-sliders-h"></i></span>
+          </ul>
+        </div>
+        <div class="bottom">
+          <a href="">{{product.product_name}}</a>
+          <div class="price">
+            <span>$ {{product.price}}</span>
+          </div>
+        </div>
+      </div>
+      {% endfor%}
+    </div>
+  </section>
+{% endblock %}
