@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block content%}
+
+<div class="container cart">
+  {% if not cart_items %}
+  <div class="text-center">
+    <h1>your shopping cart is empty</h1>
+  </div>
+  {% else %}
+    <table>
+      
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+      </tr>
+     {% for cart_item in cart_items %}
+      <tr>
+        <td>
+          <div class="cart-info">
+            <img src="{{cart_item.product.images.url}}" alt="" />
+            <div>
+              <p>{{cart_item.product.product_name}}</p>
+              <span>${{cart_item.product.price}} each</span>
+              <br />
+              <a href="{% url 'remove_cart_item' cart_item.product.id%}">remove</a>
+            </div>
+          </div>
+        </td>
+        
+        <td>
+            <a href="{% url 'remove_cart' cart_item.product.id%}" id="button-minus" class="btn btn-outline-danger"><i class="fa fa-minus"></i></a>
+            <input type="text" value="{{cart_item.quantity}}" min="1" />
+            <a href="{% url 'add_cart' cart_item.product_id%}" id="button-plus" class="btn btn-outline-success"><i class="fa fa-plus"></i></a>
+        </td>
+            
+        <td>$ {{cart_item.sub_total}}</td>
+      </tr>
+      {% endfor %}
+      {% endif %}
+    </table>
+    
+    <div class="total-price">
+      <table>
+        <tr>
+          <td>Total price</td>
+          <td>$ {{total}}</td>
+        </tr>
+        <tr>
+          <td>Tax</td>
+          <td>{{tax}}</td>
+        </tr>
+        <tr>
+          <td>Grand Total</td>
+          <td>{{grand_total}}</td>
+        </tr>
+      </table>
+      <div class="checkout">
+        <a href="btn btn-outline-primary">Proceed To Checkout</a>
+        <a href="{% url 'store' %}" > continue shopping </a> 
+      </div>
+      
+    </div>
+  </div>
+  {% endblock %}

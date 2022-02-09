@@ -15,18 +15,18 @@
 }
 
 
+
 html {
   box-sizing: border-box;
   font-size: 62.5%;
 }
 
 body {
-  
+  font-family: "Montserrat", sans-serif;
   font-size: 1.6rem;
-  background-color: var(--white);
+  background-color:  #eaedf2;
   color: var(--black);
   font-weight: 400;
-  
 }
 
 h1,
@@ -1057,14 +1057,7 @@ td img {
   margin-top: 2rem;
 }
 
-.total-price a {
-  display: inline-block;
-  background-color: var(--primary);
-  color: var(--white);
-  padding: 0.7rem 1.6rem;
-  font-weight: 700;
-  border-radius: 3rem;
-}
+
 
 .total-price table {
   border-top: 3px solid var(--primary);
@@ -1199,8 +1192,8 @@ th:last-child {
 }
 
 .product-detail h3 {
-  text-transform: uppercase;
-  margin-bottom: 2rem;
+  text-transform:capitalize;
+  margin-top: 2rem;
 }
 
 @media (max-width: 996px) {

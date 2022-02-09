@@ -13,3 +13,6 @@ def home(request):
         'categories': categories
     }
     return render(request, 'home.html', context)
+
+def order(request):
+	return render(request, 'store/order.html')
